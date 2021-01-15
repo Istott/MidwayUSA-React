@@ -1,0 +1,191 @@
+.App {
+  background-image: url('./img/riverLandscape.jpg') ;
+  background-color: rgba(255, 255, 255, 0.7);
+  background-blend-mode: overlay;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.navigation {
+  background-color: rgba(255, 254, 254, 0.3);
+  box-shadow: 0px 2px 4px gray;
+  border-radius: 2px;
+  padding-left: 1%;
+  margin-top: 0%;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.top #myLinks {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 20%;
+}
+
+.top #myLinks a {
+  text-decoration: none;
+  color: rgb(6, 22, 53);
+  border-radius: 3px;
+  border: none;
+  font-size: 1.2rem;
+  padding: 2% 1%;
+  width: 40%;
+  margin: 1%;
+}
+
+/* .top #myLinks a:hover {
+  background:rgba(6, 22, 53, 0.5);
+  transition: .6s;
+} */
+
+.toggle {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1%;
+}
+
+.Button{
+  background-color: rgba(6, 22, 53, 0.1);
+  box-shadow: 0px 2px 4px gray;
+  border-left:2px #C0C0C0 solid;
+  border-right:2px #C0C0C0 solid;
+  border-top:2px #C0C0C0 solid;
+  border-bottom: none;
+  border-radius: 3px;
+  float: center;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  width: 100%;
+  font-size: 110%;
+  color: rgb(6, 22, 53);
+}
+
+.Button:hover{
+  background:rgba(6, 22, 53, 0.3);
+}
+
+.active{
+  background: rgba(255, 255, 255, 0.4);
+  color: rgb(6, 22, 53);
+  border: none;
+  outline: none;
+}
+.active:hover{
+  background:rgba(6, 22, 53, 0.3);
+  color: rgb(6, 22, 53);
+}
+
+
+.tab {
+  overflow: hidden;
+  width: 39.5%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.activeTab{
+  display: block;
+}
+  
+.tabContent{
+  display: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.middle {
+  width: 40%;
+  height: 50vh;
+  margin-top: 0;
+}
+
+.formCard{
+  width: 100%;
+  padding: 2% 0;
+}
+
+.productSuggestionForm, .contactUsForm {
+  width: 100%;
+}
+
+.productForm, .contactForm {
+  background-color: rgba(6, 22, 53, 0.1);
+  box-shadow: 0px 2px 4px gray;
+  margin-top: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  border-radius: 3px;
+}
+
+.fields input, .fields textarea {
+  padding: 2% 0 2% 1% ;
+  margin: 1% 0;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px gray solid;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  width: 80%;
+  max-width: 80%;
+  min-width: 80%;
+  background-color: rgba(252, 252, 252, 0.4);
+}
+
+.field select{
+  padding: 2% 0 2% 1% ;
+  margin: 1% 0;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px gray solid;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  width: 81%;
+  background-color: rgba(252, 252, 252, 0.4);
+}
+
+.actions input {
+  background-color: rgb(6, 22, 53);
+  color: white;
+  border-radius: 3px;
+  border: none;
+  font-size: 1rem;
+  padding: 2% 1%;
+  width: 40%;
+  margin: 1%;
+}
+
+.actions input:hover {
+  background:rgba(6, 22, 53, 0.8);
+}
+
+.messages {
+  text-align: center;
+}
+
+.messages p{
+  color: red;
+}
+
+footer {
+  text-align: center;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
