@@ -119,7 +119,7 @@
   border-radius: 3px;
 }
 
-.fields input, .fields textarea{
+.fields input, .fields textarea {
   padding: 2% 0 2% 1% ;
   margin: 1% 0;
   border-top: none;
@@ -129,6 +129,19 @@
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
   width: 80%;
+  background-color: rgba(6, 22, 53, 0.2);
+}
+
+.field select{
+  padding: 2% 0 2% 1% ;
+  margin: 1% 0;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px gray solid;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  width: 81%;
   background-color: rgba(6, 22, 53, 0.2);
 }
 
@@ -160,6 +173,7 @@ footer {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-top: 1%;
 }
 
 .Button{
@@ -202,7 +216,7 @@ footer {
 }
   
 .tabContent{
-    display: none;
+  display: none;
 }
   
 

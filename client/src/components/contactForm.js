@@ -2,30 +2,33 @@ import React from 'react'
 
 function contactForm(props) {
 
-    const submitForm = e => {
-        setTimeout(() => {
-            props.setActive(true) 
-        }, 1000)
-            
-    };
-
     const handleSelectChanges = e => {
         const valueSelected = e.target.value;
-        // setPlant({ ...plant, [e.target.name]: valueSelected });
 
         if(valueSelected === 'trouble') {
-            props.setActive(true)
+            props.setActive(false)
         }
+
+        if(valueSelected != "") {
+            props.setRequired({selected: true})
+        }
+    };
+
+    // const submitForm = e => {
         
-      };
+    //     setTimeout(() => {
+    //         props.setActive(true) 
+    //     }, 1000)
+            
+    // };
 
 
   return (
     <div className="contactUsForm" >
-        <div className="contactForm">
+        <div className={`contactForm ${props.initialLoad ? '' : 'tabContent'}`}>
             <form method="post" action="https://formspree.io/xdozegkw">
                 <div className="fields">
-                    <div className="field half">
+                    <div className="field">
                         <input 
                             type="text" 
                             name="name" 
@@ -34,7 +37,7 @@ function contactForm(props) {
                             required
                         />
                     </div>
-                    <div className="field half">
+                    <div className="field">
                         <input 
                             type="text" 
                             name="email" 
@@ -43,14 +46,14 @@ function contactForm(props) {
                             required
                         />
                     </div>
-                    <div className="field half">
+                    <div className="field">
                         <select
                             id='h2oFrequency'
                             name='h2oFrequency'
                             onChange={handleSelectChanges}
                             required
                         >
-                            <option>Select Option</option>
+                            <option defaultValue="" disabled selected>Select option</option>
                             <option value='order'>Order question</option>
                             <option value='web'>Website feedback</option>
                             <option value='trouble'>Trouble finding a product</option>
@@ -67,7 +70,7 @@ function contactForm(props) {
                     </div>
                 </div>
                 <div className="actions">
-                    <input onClick={submitForm} type="submit" value="Send Message" className="primary" />
+                    <input type="submit" value="Send Message" className="primary" />
                     <input type="reset" value="Reset" />
                 </div>
             </form>

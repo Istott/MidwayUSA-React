@@ -9,7 +9,7 @@ function suggestionForm(props) {
     };
   return (
     <div className="productSuggestionForm" >
-        <div className="productForm">
+        <div className={`productForm ${props.initialLoad ? '' : 'tabContent'}`}>
             <h3>What product are you wanting to find?</h3>
             <form method="post" action="https://formspree.io/xdozegkw">
                 <div className="fields">
