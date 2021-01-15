@@ -5,9 +5,9 @@ import midwayusaimg from '../img/midwayusa.png';
 
 function NavBar() {
   return (
-    <div class="navigation">
-        <div class="top">
-            <div class="journal">
+    <div className="navigation">
+        <div className="top">
+            <div>
                 <img src={midwayusaimg} alt="MidwayUSA"/>
             </div>
             

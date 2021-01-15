@@ -8,12 +8,12 @@ function suggestionForm(props) {
             
     };
   return (
-    <div class="productSuggestionForm" >
-        <span><p>Have product ideas?</p><button onclick="toggleProductForm()">Share with us</button></span>
-        <div id="productForm">
+    <div className="productSuggestionForm" >
+        <div className="productForm">
+            <h3>What product are you wanting to find?</h3>
             <form method="post" action="https://formspree.io/xdozegkw">
-                <div class="fields">
-                    <div class="field half">
+                <div className="fields">
+                    <div className="field half">
                         <input 
                             type="text" 
                             name="name" 
@@ -22,7 +22,7 @@ function suggestionForm(props) {
                             required
                         />
                     </div>
-                    <div class="field half">
+                    <div className="field half">
                         <input 
                             type="text" 
                             name="email" 
@@ -31,7 +31,7 @@ function suggestionForm(props) {
                             required
                         />
                     </div>
-                    <div class="field">
+                    <div className="field">
                         <textarea 
                             name="message" 
                             id="message"
@@ -41,8 +41,8 @@ function suggestionForm(props) {
                         ></textarea>
                     </div>
                 </div>
-                <div class="actions">
-                    <input onClick={submitForm} type="submit" value="Send Message" class="primary" />
+                <div className="actions">
+                    <input onClick={submitForm} type="submit" value="Send Message" className="primary" />
                     <input type="reset" value="Reset" />
                 </div>
             </form>

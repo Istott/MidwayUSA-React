@@ -9,14 +9,23 @@ function contactForm(props) {
             
     };
 
+    const handleSelectChanges = e => {
+        const valueSelected = e.target.value;
+        // setPlant({ ...plant, [e.target.name]: valueSelected });
+
+        if(valueSelected === 'trouble') {
+            props.setActive(true)
+        }
+        
+      };
+
 
   return (
-    <div class="contactUsForm" >
-        <span><p>Have a question?</p><button onclick="toggleContactForm()">Ask us here</button></span>
-        <div id="contactForm">
+    <div className="contactUsForm" >
+        <div className="contactForm">
             <form method="post" action="https://formspree.io/xdozegkw">
-                <div class="fields">
-                    <div class="field half">
+                <div className="fields">
+                    <div className="field half">
                         <input 
                             type="text" 
                             name="name" 
@@ -25,7 +34,7 @@ function contactForm(props) {
                             required
                         />
                     </div>
-                    <div class="field half">
+                    <div className="field half">
                         <input 
                             type="text" 
                             name="email" 
@@ -34,7 +43,20 @@ function contactForm(props) {
                             required
                         />
                     </div>
-                    <div class="field">
+                    <div className="field half">
+                        <select
+                            id='h2oFrequency'
+                            name='h2oFrequency'
+                            onChange={handleSelectChanges}
+                            required
+                        >
+                            <option>Select Option</option>
+                            <option value='order'>Order question</option>
+                            <option value='web'>Website feedback</option>
+                            <option value='trouble'>Trouble finding a product</option>
+                        </select>
+                    </div>
+                    <div className="field">
                         <textarea 
                             name="message" 
                             id="message"
@@ -44,8 +66,8 @@ function contactForm(props) {
                         ></textarea>
                     </div>
                 </div>
-                <div class="actions">
-                    <input onClick={submitForm} type="submit" value="Send Message" class="primary" />
+                <div className="actions">
+                    <input onClick={submitForm} type="submit" value="Send Message" className="primary" />
                     <input type="reset" value="Reset" />
                 </div>
             </form>
