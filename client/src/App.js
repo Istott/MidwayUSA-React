@@ -9,21 +9,27 @@ import ContactForm from './components/contactForm';
 function App() {
   const [initialLoad, setInitialLoad] = useState(false)
   const [active, setActive] = useState(true)
+  const [validated, setValidated] = useState({
+    name: '',
+    email: '',
+    message: '' 
+  })
   const [required, setRequired] = useState({
     name: '',
     email: '',
     selected: false,
     message: '' 
   })
-  console.log(required.selected)
 
-  // const submitCheck = () => {
-  //   check what form we are on
-  //   - if contactForm
-  //     - check if all fields are filled in including selected is set to true
-  //   - else suggestionForm
-  //     - check all fields are filled. dont check selected
-  // }
+  const handleChanges = e => {
+    setRequired({ ...required, [e.target.name]: e.target.value });
+
+    if(!required.name) {
+      setValidated({name: 'Name please'})
+    } else {
+      setValidated({name: ''})
+    }
+  };
 
   const firstClickSuggestion = () => {
     if(!initialLoad) {
@@ -58,21 +64,39 @@ function App() {
         <section className="middle">
           <div className={`loginCard ${active ? 'tabContent' : 'activeTab'}`}>
               <div className="login">
-                <SuggestionForm initialLoad = {initialLoad} setActive = {setActive} setRequired = {setRequired} /> 
+                <SuggestionForm 
+                  initialLoad = {initialLoad} 
+                  setActive = {setActive} 
+                  setRequired = {setRequired} 
+                  required = {required}
+                  handleChanges = {handleChanges}
+                /> 
               </div>
           </div>
 
           <div className={`loginCard ${active ? 'activeTab' : 'tabContent'}`}>
-              <ContactForm initialLoad = {initialLoad} setActive = {setActive} setRequired = {setRequired} />
+              <ContactForm 
+                initialLoad = {initialLoad} 
+                setActive = {setActive} 
+                setRequired = {setRequired}
+                required = {required}
+                handleChanges = {handleChanges}
+              />
           </div>
         </section>
-
-        <footer>
-            <div className="copyright">
-                <p>©2021 MidwayUSA. All rights reserved</p>
-            </div>
-        </footer>
       </div>
+
+      <div className={`messages ${initialLoad ? '' : 'tabContent'}`}>
+        {/* <p>{validated.name}</p> */}
+        {/* <p>{required.email.includes("@") ? '' : 'Must have valid email address'}</p>
+        <p>{required.message.length < 5 ? 'Message needs to be longer than 5 characters' : ''}</p> */}
+      </div>
+
+      <footer>
+          <div className="copyright">
+              <p>©2021 MidwayUSA. All rights reserved</p>
+          </div>
+      </footer>
     </div>
   );
 }

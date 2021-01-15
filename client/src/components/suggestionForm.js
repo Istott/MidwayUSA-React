@@ -1,12 +1,7 @@
 import React from 'react'
 
-function suggestionForm(props) {
-    const submitForm = e => {
-        setTimeout(() => {
-            props.setActive(true) 
-        }, 1000)
-            
-    };
+function SuggestionForm(props) {
+
   return (
     <div className="productSuggestionForm" >
         <div className={`productForm ${props.initialLoad ? '' : 'tabContent'}`}>
@@ -17,6 +12,8 @@ function suggestionForm(props) {
                         <input 
                             type="text" 
                             name="name" 
+                            value={props.required.name}
+                            onChange={props.handleChanges}
                             id="name" 
                             placeholder="Name"
                             required
@@ -26,6 +23,8 @@ function suggestionForm(props) {
                         <input 
                             type="text" 
                             name="email" 
+                            value={props.required.email}
+                            onChange={props.handleChanges}
                             id="email" 
                             placeholder="Email"
                             required
@@ -35,6 +34,8 @@ function suggestionForm(props) {
                         <textarea 
                             name="message" 
                             id="message"
+                            value={props.required.message}
+                            onChange={props.handleChanges}
                             placeholder="What product do you have in mind?" 
                             rows="4"
                             required
@@ -42,13 +43,18 @@ function suggestionForm(props) {
                     </div>
                 </div>
                 <div className="actions">
-                    <input onClick={submitForm} type="submit" value="Send Message" className="primary" />
+                    <input type="submit" value="Send Message" className="primary" />
                     <input type="reset" value="Reset" />
                 </div>
             </form>
+            <div className='messages'>
+                <p>{!props.required.name ? 'Need a name' : ''}</p>
+                <p>{!props.required.email ? 'Must have valid email address' : ''}</p>
+                <p>{!props.required.message ? 'Must have a message' : ''}</p>
+            </div>           
         </div>
     </div>
   );
 }
 
-export default suggestionForm;
+export default SuggestionForm;

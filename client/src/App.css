@@ -63,7 +63,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  width: 30%;
+  width: 20%;
 }
 
 .top #myLinks a {
@@ -74,7 +74,7 @@
   border-radius: 2px;
   color: #080E33; */
   text-decoration: none;
-  background-color: #FFC700;
+  /* background-color: rgba(6, 22, 53, 0.3); */
   color: rgb(6, 22, 53);
   border-radius: 3px;
   border: none;
@@ -85,7 +85,7 @@
 }
 
 .top #myLinks a:hover {
-  background:rgba(6, 22, 53, 0.8);
+  /* background:rgba(6, 22, 53, 0.5); */
   /* transition: .6s; */
 }
 
@@ -129,7 +129,9 @@
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
   width: 80%;
-  background-color: rgba(6, 22, 53, 0.2);
+  max-width: 80%;
+  min-width: 80%;
+  background-color: rgba(6, 22, 53, 0.1);
 }
 
 .field select{
@@ -159,6 +161,10 @@
 .actions input:hover {
   background:rgba(6, 22, 53, 0.8);
   /* transition: .6s; */
+}
+
+.messages {
+  text-align: center;
 }
 
 
