@@ -9,27 +9,6 @@ import ContactForm from './components/contactForm';
 function App() {
   const [initialLoad, setInitialLoad] = useState(false)
   const [active, setActive] = useState(true)
-  const [validated, setValidated] = useState({
-    name: '',
-    email: '',
-    message: '' 
-  })
-  const [required, setRequired] = useState({
-    name: '',
-    email: '',
-    selected: false,
-    message: '' 
-  })
-
-  const handleChanges = e => {
-    setRequired({ ...required, [e.target.name]: e.target.value });
-
-    if(!required.name) {
-      setValidated({name: 'Name please'})
-    } else {
-      setValidated({name: ''})
-    }
-  };
 
   const firstClickSuggestion = () => {
     if(!initialLoad) {
@@ -62,34 +41,22 @@ function App() {
 
       <div className="container">
         <section className="middle">
-          <div className={`loginCard ${active ? 'tabContent' : 'activeTab'}`}>
+          <div className={`formCard ${active ? 'tabContent' : 'activeTab'}`}>
               <div className="login">
                 <SuggestionForm 
                   initialLoad = {initialLoad} 
                   setActive = {setActive} 
-                  setRequired = {setRequired} 
-                  required = {required}
-                  handleChanges = {handleChanges}
                 /> 
               </div>
           </div>
 
-          <div className={`loginCard ${active ? 'activeTab' : 'tabContent'}`}>
+          <div className={`formCard ${active ? 'activeTab' : 'tabContent'}`}>
               <ContactForm 
                 initialLoad = {initialLoad} 
                 setActive = {setActive} 
-                setRequired = {setRequired}
-                required = {required}
-                handleChanges = {handleChanges}
               />
           </div>
         </section>
-      </div>
-
-      <div className={`messages ${initialLoad ? '' : 'tabContent'}`}>
-        {/* <p>{validated.name}</p> */}
-        {/* <p>{required.email.includes("@") ? '' : 'Must have valid email address'}</p>
-        <p>{required.message.length < 5 ? 'Message needs to be longer than 5 characters' : ''}</p> */}
       </div>
 
       <footer>

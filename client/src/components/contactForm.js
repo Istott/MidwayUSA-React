@@ -1,6 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 function ContactForm(props) {
+    const [required, setRequired] = useState({
+        name: '',
+        email: '',
+        selected: false,
+        message: '' 
+    })
+
+    const handleChanges = e => {
+        setRequired({ ...required, [e.target.name]: e.target.value });
+    };
 
     const handleSelectChanges = e => {
         const valueSelected = e.target.value;
@@ -10,7 +20,7 @@ function ContactForm(props) {
         }
 
         if(valueSelected !== "") {
-            props.setRequired({selected: true})
+            setRequired({selected: true})
         }
     };
 
@@ -25,8 +35,8 @@ function ContactForm(props) {
                         <input 
                             type="text" 
                             name="name" 
-                            value={props.required.name}
-                            onChange={props.handleChanges}
+                            value={required.name}
+                            onChange={handleChanges}
                             id="name" 
                             placeholder="Name"
                             required
@@ -36,8 +46,8 @@ function ContactForm(props) {
                         <input 
                             type="text" 
                             name="email" 
-                            value={props.required.email}
-                            onChange={props.handleChanges}
+                            value={required.email}
+                            onChange={handleChanges}
                             id="email" 
                             placeholder="Email"
                             required
@@ -60,8 +70,8 @@ function ContactForm(props) {
                         <textarea 
                             name="message" 
                             id="message"
-                            value={props.required.message}
-                            onChange={props.handleChanges}
+                            value={required.message}
+                            onChange={handleChanges}
                             placeholder="message here" 
                             rows="4"
                             required
@@ -69,14 +79,14 @@ function ContactForm(props) {
                     </div>
                 </div>
                 <div className="actions">
-                    <input disabled={!props.required.selected} type="submit" value="Send Message" className="primary" />
+                    <input disabled={!required.selected} type="submit" value="Send Message" className="primary" />
                     <input type="reset" value="Reset" />
                 </div>
             </form>
             <div className='messages'>
-                <p>{!props.required.name ? 'Need a name' : ''}</p>
-                <p>{!props.required.email ? 'Must have valid email address' : ''}</p>
-                <p>{!props.required.message ? 'Must have a message' : ''}</p>
+                <p>{!required.name ? 'Need a name' : ''}</p>
+                <p>{!required.email ? 'Must have valid email address' : ''}</p>
+                <p>{!required.message ? 'Must have a message' : ''}</p>
             </div>
         </div>
     </div>

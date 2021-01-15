@@ -1,6 +1,28 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 function SuggestionForm(props) {
+    const [validated, setValidated] = useState({
+        name: '',
+        email: '',
+        message: '' 
+    })
+    
+    const [required, setRequired] = useState({
+        name: '',
+        email: '',
+        selected: false,
+        message: '' 
+    })
+
+    const handleChanges = e => {
+        setRequired({ ...required, [e.target.name]: e.target.value });
+
+        if(!required.name) {
+            setValidated({name: 'Name please'})
+        } else {
+            setValidated({name: ''})
+        }
+    };
 
   return (
     <div className="productSuggestionForm" >
@@ -12,8 +34,8 @@ function SuggestionForm(props) {
                         <input 
                             type="text" 
                             name="name" 
-                            value={props.required.name}
-                            onChange={props.handleChanges}
+                            value={required.name}
+                            onChange={handleChanges}
                             id="name" 
                             placeholder="Name"
                             required
@@ -23,8 +45,8 @@ function SuggestionForm(props) {
                         <input 
                             type="text" 
                             name="email" 
-                            value={props.required.email}
-                            onChange={props.handleChanges}
+                            value={required.email}
+                            onChange={handleChanges}
                             id="email" 
                             placeholder="Email"
                             required
@@ -34,8 +56,8 @@ function SuggestionForm(props) {
                         <textarea 
                             name="message" 
                             id="message"
-                            value={props.required.message}
-                            onChange={props.handleChanges}
+                            value={required.message}
+                            onChange={handleChanges}
                             placeholder="What product do you have in mind?" 
                             rows="4"
                             required
@@ -48,9 +70,9 @@ function SuggestionForm(props) {
                 </div>
             </form>
             <div className='messages'>
-                <p>{!props.required.name ? 'Need a name' : ''}</p>
-                <p>{!props.required.email ? 'Must have valid email address' : ''}</p>
-                <p>{!props.required.message ? 'Must have a message' : ''}</p>
+                <p>{!required.name ? 'Need a name' : ''}</p>
+                <p>{!required.email ? 'Must have valid email address' : ''}</p>
+                <p>{!required.message ? 'Must have a message' : ''}</p>
             </div>           
         </div>
     </div>
