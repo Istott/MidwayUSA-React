@@ -1,12 +1,6 @@
 import React, {useState} from 'react'
 
 function SuggestionForm(props) {
-    const [validated, setValidated] = useState({
-        name: '',
-        email: '',
-        message: '' 
-    })
-    
     const [required, setRequired] = useState({
         name: '',
         email: '',
@@ -16,12 +10,6 @@ function SuggestionForm(props) {
 
     const handleChanges = e => {
         setRequired({ ...required, [e.target.name]: e.target.value });
-
-        if(!required.name) {
-            setValidated({name: 'Name please'})
-        } else {
-            setValidated({name: ''})
-        }
     };
 
   return (
