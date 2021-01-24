@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-// import * as yup from 'yup';
+import React, {useState} from 'react';
 import './App.css';
 
 import NavBar from './components/navbar';
@@ -10,7 +9,6 @@ import ContactForm from './components/contactForm';
 function App() {
   const [initialLoad, setInitialLoad] = useState(false)
   const [active, setActive] = useState(true)
-
 
   const firstClickSuggestion = () => {
     if(!initialLoad) {

@@ -64,12 +64,10 @@ function ContactForm(props) {
 
         if(valueSelected !== "") {
             setRequired({selected: true})
+        } else {
+            setRequired({selected: false})
         }
     };
-
-    console.table(validate)
-    console.table(required)
-
 
   return (
     <div className="contactUsForm" >
@@ -112,7 +110,7 @@ function ContactForm(props) {
                             onChange={handleSelectChanges}
                             required
                         >
-                            <option defaultValue="" disabled selected >Select option</option>
+                            <option value="" disabled selected >Select option</option>
                             <option value='order'>Order question</option>
                             <option value='web'>Website feedback</option>
                             <option value='trouble'>Trouble finding a product</option>
