@@ -136,7 +136,6 @@ function ContactForm(props) {
                 </div>
                 <div className="actions">
                     <input disabled={!required.selected} type="submit" value="Send Message" className="primary" />
-                    <input type="reset" value="Reset" />
                 </div>
             </form>
         </div>
