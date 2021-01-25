@@ -106,7 +106,6 @@ function SuggestionForm(props) {
                 </div>
                 <div className="actions">
                     <input type="submit" value="Send Message" className="primary" />
-                    <input type="reset" value="Reset" />
                 </div>
             </form>         
         </div>
