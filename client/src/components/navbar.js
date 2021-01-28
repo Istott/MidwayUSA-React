@@ -11,8 +11,8 @@ function NavBar() {
             </div>
             
             <div id="myLinks">
-                <a href="#">Home</a>
-                <a href="#">Contact</a>
+                <p>Home</p>
+                <p>Contact</p>
             </div>
         </div>
     </div>
