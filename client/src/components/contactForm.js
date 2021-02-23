@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 
 function ContactForm(props) {
+    
 
     const [validate, setValidate] = useState({
         name: '',
@@ -125,7 +126,7 @@ function ContactForm(props) {
                             id="message"
                             value={required.message}
                             onChange={handleChanges}
-                            placeholder="message here" 
+                            placeholder="Message here" 
                             rows="4"
                             required
                         ></textarea>
